@@ -42,10 +42,11 @@ head(dados)
 attach(dados)
 
 #Examine quantos presas de cada tipo foram mortas pelos lobos. Ha varias formas de produzir esse resultado: voce conhece outras?
-counts = table(preytype)
+counts = table(preytype) # 0  = corças, 1 = alces
 counts
 barplot(counts,
         xlab = "Tipo de presa",
+        names=c("Corças","Alces"),
         ylab = "Frequencia")
 
 #Pense com calma sobre quais fatores devem ser mais importantes para determinar a escolha das presas pelos lobos. Não saia pescando resultados a esmo. Lembre-se das correlacoes espurias: https://www.tylervigen.com/spurious-correlations
@@ -55,7 +56,7 @@ p1 = ggplot(dados, aes(x=moosedensity, y=preytype)) +
   geom_point(colour = "blue", size=4, alpha = 0.3) + 
   stat_smooth(method="glm", method.args=list(family="binomial"),
               se=T, colour = "blue", fill = "blue", alpha = 0.1) +
-  labs(x="Densidade de alces por 10 km2", y = "Presa: alce=0, corsa=1") +
+  labs(x="Densidade de alces por 10 km2", y = "Corças | Alces") +
   theme(text = element_text(size=20),
         plot.title = element_text(size=40, hjust=0.5),
         axis.text.x = element_text(size = 20, angle=0, hjust=1),
@@ -119,7 +120,7 @@ p2 = ggplot(dados, aes(x=roedensity, y=preytype)) +
   geom_point(colour = "blue", size=4, alpha = 0.3) + 
   stat_smooth(method="glm", method.args=list(family="binomial"),
               se=T, colour = "blue", fill = "blue", alpha = 0.1) +
-  labs(x="Densidade de corsas por 10 km2", y = "Presa: alce=0, corsa=1") +
+  labs(x="Densidade de corsas por 10 km2", y = "Corças | Alces") +
   theme(text = element_text(size=20),
         plot.title = element_text(size=40, hjust=0.5),
         axis.text.x = element_text(size = 20, angle=0, hjust=1),
