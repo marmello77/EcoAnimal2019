@@ -1,5 +1,6 @@
-# EcoAnimal
-Códigos de R usados em aulas práticas de Ecologia Animal na Universidade de São Paulo.
+# EcoAnimal 2019
+
+Códigos de R usados nas aulas práticas de Ecologia Animal na Universidade de São Paulo, edição de 2019.
 
 Laboratório de Síntese Ecológica (SintECO): https://marcomellolab.wordpress.com.
 
